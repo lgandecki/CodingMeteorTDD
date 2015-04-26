@@ -1,1 +1,2 @@
-- show a video of history crashcourse
+- render the video using youtube API
+- make a hook for when video finishes

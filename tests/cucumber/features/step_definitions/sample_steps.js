@@ -33,7 +33,7 @@
         waitForVisible('div#video').
         getHTML("div#video", function(err, html) {
             console.log("html ", html);
-            assert.notStrictEqual(html, '<iframe width="560" height="315" src="https://www.youtube.com/embed/Yocja_N5s1I?list=PLBDA2E52FB1EF80C9" frameborder="0" allowfullscreen></iframe>')
+            assert.notStrictEqual(html, '<iframe width="560" height="315" src="https://www.youtube.com/embed/Yocja_N5s1I" frameborder="0" allowfullscreen></iframe>')
           }).call(callback);
 
     });
