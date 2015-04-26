@@ -7,3 +7,7 @@
 meteor-platform
 autopublish
 insecure
+xolvio:template-isolator
+sanjo:jasmine
+meteortypescript:typescript-libs
+xolvio:cucumber
