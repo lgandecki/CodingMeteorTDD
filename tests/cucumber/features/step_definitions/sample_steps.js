@@ -30,10 +30,10 @@
     this.Then(/^I should see first Crash Course youtube video$/, function (callback) {
       // Write code here that turns the phrase above into concrete actions
       this.browser.
-        waitForVisible('div#video').
-        getHTML("div#video", function(err, html) {
+        waitForVisible('#video').
+        getHTML("#video", function(err, html) {
             console.log("html ", html);
-            assert.notStrictEqual(html, '<iframe width="560" height="315" src="https://www.youtube.com/embed/Yocja_N5s1I" frameborder="0" allowfullscreen></iframe>')
+            assert.equal(html, '<iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/Yocja_N5s1I" frameborder="0" allowfullscreen=""></iframe>')
           }).call(callback);
 
     });
