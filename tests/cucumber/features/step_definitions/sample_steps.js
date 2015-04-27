@@ -1,12 +1,11 @@
 (function () {
 
   'use strict';
-  var assert = require('assert');
-
   module.exports = function () {
 
     // You can use normal require here, cucumber is NOT run in a Meteor context (by design)
     var url = require('url');
+    var assert = require("/usr/local/lib/node_modules/chai/chai").assert;
 
     this.Given(/^I am a new user$/, function () {
       // no callbacks! DDP has been promisified so you can just return it
@@ -30,10 +29,9 @@
     this.Then(/^I should see first Crash Course youtube video$/, function (callback) {
       // Write code here that turns the phrase above into concrete actions
       this.browser.
-        waitForVisible('#video').
-        getHTML("#video", function(err, html) {
-            console.log("html ", html);
-            assert.equal(html, '<iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/Yocja_N5s1I" frameborder="0" allowfullscreen=""></iframe>')
+        waitForVisible('#ytplayer').
+        getHTML("#ytplayer", function(err, html) {
+            assert.match(html, /youtube.com/, "ytplayer loaded youtube link")
           }).call(callback);
 
     });
