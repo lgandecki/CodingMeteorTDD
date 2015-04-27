@@ -14,6 +14,20 @@ describe("videoTemplate", function() {
         });
     });
     describe (" tracker ", function() {
+        var yt = {
+            "ready": function () {
+                return true;
+            },
+            player: {
+                "addEventListener": function () {
+
+                },
+                "loadVideoById": function () {
+
+                }
+            }
+        };
+
         it("should be running inside a tracker", function() {
             spyOn(Tracker, "autorun");
             window["theBrain.video"].onRendered();
@@ -22,18 +36,6 @@ describe("videoTemplate", function() {
         });
 
         it("should render the video", function () {
-            var yt = {
-                "ready": function () {
-
-                },
-                player: {
-                    "loadVideoById": function () {
-
-                    }
-                }
-            };
-
-            spyOn(yt, "ready").and.returnValue(true);
             spyOn(yt.player, "loadVideoById");
 
             window["theBrain.video"].tracker(yt);
@@ -41,5 +43,12 @@ describe("videoTemplate", function() {
             expect(yt.player.loadVideoById).toHaveBeenCalledWith("Yocja_N5s1I");
 
         });
+        it("should set a hook for when the video finishes", function() {
+            spyOn(yt.player, "addEventListener");
+
+            window["theBrain.video"].tracker(yt);
+
+            expect(yt.player.addEventListener).toHaveBeenCalledWith("onStateChange", jasmine.any(Function));
+        })
     });
 });

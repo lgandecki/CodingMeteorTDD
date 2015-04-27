@@ -1,2 +1,6 @@
-- render the video using youtube API
 - make a hook for when video finishes
+- make it so it doesn't start automatically
+
+// maybe fast forward somehow from cucumber and see if anything's changed.
+
+// change state changes Session.get("video playing")? and then based on that you can click "rewatch" or "study"

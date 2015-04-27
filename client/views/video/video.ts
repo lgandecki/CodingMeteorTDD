@@ -13,11 +13,18 @@ Template["video"].onRendered(window["theBrain.video"].onRendered = function () {
     window["theBrain.video"].tracker(_yt);
 });
 
+
 window["theBrain.video"].tracker = function (yt:YTPlayer) {
     Tracker.autorun(function () {
         if (yt.ready()) {
-            console.log("ready!");
             yt.player.loadVideoById("Yocja_N5s1I");
+            yt.player.addEventListener("onStateChange", _playerEventListener);
         }
     });
+};
+
+
+
+var _playerEventListener = function(e) {
+
 };
