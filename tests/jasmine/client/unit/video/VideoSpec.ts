@@ -22,7 +22,7 @@ describe("videoTemplate", function() {
                 "addEventListener": function () {
 
                 },
-                "loadVideoById": function () {
+                "cueVideoById": function () {
 
                 }
             }
@@ -36,11 +36,11 @@ describe("videoTemplate", function() {
         });
 
         it("should render the video", function () {
-            spyOn(yt.player, "loadVideoById");
+            spyOn(yt.player, "cueVideoById");
 
             window["theBrain.video"].tracker(yt);
 
-            expect(yt.player.loadVideoById).toHaveBeenCalledWith("Yocja_N5s1I");
+            expect(yt.player.cueVideoById).toHaveBeenCalledWith("Yocja_N5s1I");
 
         });
         it("should set a hook for when the video finishes", function() {

@@ -19,3 +19,15 @@ Feature: Showing Crash Course intro video
       Given I am a new user
       When I navigate to "/"
       Then I should see first Crash Course youtube video
+
+Feature: Showing helpers to start studying
+      Scenario:
+        Given I am a new user
+        When I navigate to "/"
+        Then I should not see button "Start memorizing"
+
+#      Scenario:
+#        Given I am a new user
+#        When I navigate to "/"
+#        And Video finished
+#        Then I should see button "Start memorizing"

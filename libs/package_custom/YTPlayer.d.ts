@@ -1,6 +1,7 @@
 interface YTPlayer {
     player: {
         loadVideoById(videoId: string): void;
+        cueVideoById(videoId: string): void;
         addEventListener(event: string, listener: Function): void;
     };
     ready(): boolean;

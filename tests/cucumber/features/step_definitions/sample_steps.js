@@ -36,6 +36,34 @@
 
     });
 
+    this.Then(/^I should not see button "([^"]*)"$/, function (arg1, callback) {
+      // Write code here that turns the phrase above into concrete actions
+      var _buttonSelector = "//button[text()='" + arg1 + "']";
+      this.browser.waitForExist(_buttonSelector)
+      .isVisible(_buttonSelector, function(err, isVisible) {
+        assert.isFalse(isVisible);
+          callback();
+      })
+    });
+
+    //this.When(/^Video finished$/, function (callback) {
+    //  callback().pending();
+    //  // Write code here that turns the phrase above into concrete actions
+    //  //Session.set("videoFinished", true);
+    //  callback();
+    //});
+    //
+    //
+    //this.Then(/^I should see button "([^"]*)"$/, function (arg1, callback) {
+    //  callback().pending();
+    //  var _buttonSelector = "//button[text()='" + arg1 + "']";
+    //  this.browser.waitForExist(_buttonSelector)
+    //    .isVisible(_buttonSelector, function(err, isVisible) {
+    //      assert.isTrue(isVisible);
+    //      callback();
+    //    })
+    //});
+
   };
 
 })();
