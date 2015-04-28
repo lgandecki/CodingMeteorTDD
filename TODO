@@ -1,4 +1,12 @@
+Show the flashcards reactively on the flashcardsList
+Add an option to add flashcard, check if it shows up.
+
+
 Test the after-video-finishes hook
 There are two ideas, but I don't know how to do neither of those:
+You can use the call in browser function..
   // maybe fast forward somehow from cucumber and see if anything's changed.
   // change state changes Session.get("video playing")? and then based on that you can click "rewatch" or "study"
+
+Model flashcards
+

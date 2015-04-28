@@ -64,6 +64,59 @@
     //    })
     //});
 
+
+    this.Given(/^I am authenticated as admin$/, function (callback) {
+      this.browser.
+        execute(function() {
+          Meteor.logout();
+        });
+
+      this.browser
+        .waitForExist("//li[@id='login-dropdown-list']/a[contains(.,'Sign')]")
+        .click("//li[@id='login-dropdown-list']/a[contains(.,'Sign')]")
+        .waitForVisible("#login-email")
+        .setValue('#login-email', "admin@thebrain.pro")
+        .setValue("#login-password", "password")
+        .click("#login-buttons-password");
+
+      var _adminSelector = '//li[@id="login-dropdown-list"]/a[contains(.,"Admin")]';
+
+      this.browser.waitForExist(_adminSelector).isVisible(_adminSelector, function(err, isVisible) {
+        assert.isTrue(isVisible);
+        callback();
+      });
+    });
+
+
+    this.Given(/^I click on "([^"]*)" menu$/, function (menuItem, callback) {
+      var _menuSelector = '//ul[@id="topMenu"]/li/a[contains(.,"' + menuItem +'")]';
+
+      this.browser.click(_menuSelector);
+      callback();
+
+    });
+
+
+    this.Then(/^I should see button "([^"]*)"$/, function (arg1, callback) {
+      // Write code here that turns the phrase above into concrete actions
+      var _buttonSelector = "//button[text()='" + arg1 + "']";
+      this.browser.waitForExist(_buttonSelector)
+        .isVisible(_buttonSelector, function(err, isVisible) {
+          assert.isTrue(isVisible);
+          callback();
+        })
+    });
+
+
+    this.Then(/^I should see a list of flashcards$/, function (callback) {
+      var _flashcardsListSelector = "//ul[@id='flashcardsList']/li";
+      this.browser.waitForExist(_flashcardsListSelector).
+        isVisible(_flashcardsListSelector, function(err, isVisible) {
+          assert.isTrue(isVisible && isVisible[0]);
+		      callback();
+	      });
+    });
+
   };
 
 })();

@@ -31,3 +31,11 @@ Feature: Showing helpers to start studying
 #        When I navigate to "/"
 #        And Video finished
 #        Then I should see button "Start memorizing"
+
+Feature: Going to add Flashcard page
+        Scenario:
+          Given I am a new user
+          And I am authenticated as admin
+          And I click on "Add Flashcards" menu
+          Then I should see button "Add Flashcard"
+          And I should see a list of flashcards

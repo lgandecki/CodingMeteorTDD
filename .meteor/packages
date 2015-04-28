@@ -6,10 +6,14 @@
 
 meteor-platform
 autopublish
-insecure
 xolvio:template-isolator
 sanjo:jasmine
 meteortypescript:typescript-libs
 xolvio:cucumber
 hpx7:youtube-iframe-player
 mike:mocha
+accounts-password
+alanning:roles
+ian:accounts-ui-bootstrap-3
+twbs:bootstrap
+iron:router
