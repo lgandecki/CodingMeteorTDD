@@ -39,3 +39,10 @@ Feature: Going to add Flashcard page
           And I click on "Add Flashcards" menu
           Then I should see button "Add Flashcard"
           And I should see a list of flashcards
+
+Feature: Going to history page
+	Scenario:
+		Given I am a new user
+		And I click on "history" menu
+		Then I should see "history"
+
